@@ -19,10 +19,7 @@ public class Controller {
 
     @GetMapping("/demo")
     public String demo(){
-        UserInfo userInfo = new UserInfo();
-        userInfo.setId(1);
-        userInfo.setName("gg");
-        rabbitTemplate.convertAndSend(Constant.QUEUE,userInfo);
+        rabbitTemplate.convertAndSend(Constant.QUEUE,"rabbitmq");
         return "success";
     }
 }
